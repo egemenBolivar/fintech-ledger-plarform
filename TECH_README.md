@@ -16,7 +16,7 @@ This project focuses on:
 
 ---
 
-##  Why This Project Exists
+## 🚀 Why This Project Exists
 
 Most demo projects stop at:
 > “User adds money, balance updates.”
@@ -28,21 +28,22 @@ This project answers:
 
 ---
 
-##  Key Highlights
- Immutable ledger (append-only transactions)  
- Multi-currency wallet support  
- Derived balances (no fake updates)  
- Modular Monolith with DDD boundaries  
- Angular feature-based UI  
- CI/CD & cloud tooling ready  
- Observability-first mindset  
+## 🧠 Key Highlights
+
+✅ Immutable ledger (append-only transactions)  
+✅ Multi-currency wallet support  
+✅ Derived balances (no fake updates)  
+✅ Modular Monolith with DDD boundaries  
+✅ Angular feature-based UI  
+✅ CI/CD & cloud tooling ready  
+✅ Observability-first mindset  
 
 ---
 
 ## 🛠 Tech Stack
 
 **Backend**
-- Java 17, Spring Boot
+- Java 21, Spring Boot
 - JPA / PostgreSQL
 - Flyway, Testcontainers
 
@@ -59,7 +60,7 @@ This project answers:
 
 ---
 
-##  Evolution Path
+## 📈 Evolution Path
 
 This system is intentionally designed to evolve:
 
@@ -69,7 +70,7 @@ This system is intentionally designed to evolve:
 
 ---
 
-##  Disclaimer
+## ⚠️ Disclaimer
 
 This project does **not process real money**.
 It is an **architectural showcase** for FinTech systems.

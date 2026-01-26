@@ -579,3 +579,8 @@ transactionRepository.save(tx);
 - [Mimari Spesifikasyon](Spring%20Boot%20+%20JPA%20+%20Angular%20ile%20vitrinlik,%20gerçekç)
 - UI Analiz (ui analiz.md)
 
+
+
+Idempotency key (aynı isteği 2 kez yollayınca çift kayıt olmasın)
+Optimistic locking (concurrency için)
+Transfer = 2 transaction atomik (from debit + to credit tek DB transaction) kurulacak. 
