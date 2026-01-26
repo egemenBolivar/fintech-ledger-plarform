@@ -1,0 +1,31 @@
+### Java / Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+.classpath
+.project
+.settings/
+.idea/
+*.log
+hs_err_pid*
+
+### Node / Angular
+node_modules/
+dist/
+out-tsc/
+tmp/
+package-lock.json
+yarn.lock
+coverage/
+.angular/cache/
+.env
+
+### OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
