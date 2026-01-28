@@ -24,6 +24,10 @@ public record Money(BigDecimal amount, Currency currency) {
 		return new Money(amount, currency);
 	}
 
+	public static Money of(String amount, Currency currency) {
+		return new Money(new BigDecimal(amount), currency);
+	}
+
 	public Money add(Money other) {
 		requireSameCurrency(other);
 		return new Money(this.amount.add(other.amount), this.currency);

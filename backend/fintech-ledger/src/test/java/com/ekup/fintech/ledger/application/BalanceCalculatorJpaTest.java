@@ -1,15 +1,19 @@
 package com.ekup.fintech.ledger.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Set;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ekup.fintech.auth.domain.Role;
+import com.ekup.fintech.auth.domain.User;
+import com.ekup.fintech.auth.infrastructure.UserRepository;
 import com.ekup.fintech.ledger.domain.ReferenceType;
 import com.ekup.fintech.ledger.domain.Transaction;
 import com.ekup.fintech.ledger.domain.TransactionGroupType;
@@ -31,9 +35,19 @@ class BalanceCalculatorJpaTest {
 	@Autowired
 	BalanceCalculator balanceCalculator;
 
+	@Autowired
+	UserRepository userRepository;
+
+	private User testUser;
+
+	@BeforeEach
+	void setUp() {
+		testUser = userRepository.save(User.create("balance-test@example.com", "password", "Test User", Set.of(Role.USER)));
+	}
+
 	@Test
 	void calculatesSignedBalanceFromImmutableTransactions() {
-		Wallet wallet = walletRepository.save(Wallet.create(java.util.UUID.randomUUID(), Currency.USD));
+		Wallet wallet = walletRepository.save(Wallet.create(testUser, Currency.USD));
 
 		transactionRepository.save(Transaction.credit(
 				wallet.getId(),

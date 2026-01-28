@@ -3,6 +3,7 @@ package com.ekup.fintech.ledger.domain;
 import java.util.Objects;
 import java.util.UUID;
 
+import com.ekup.fintech.auth.domain.User;
 import com.ekup.fintech.shared.domain.BaseEntity;
 import com.ekup.fintech.shared.domain.Currency;
 import com.ekup.fintech.shared.exception.WalletClosedException;
@@ -12,9 +13,13 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.Version;
 
 @Entity
 @Table(
@@ -26,8 +31,9 @@ public class Wallet extends BaseEntity {
 	@Column(nullable = false)
 	private UUID id;
 
-	@Column(name = "owner_id", nullable = false)
-	private UUID ownerId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "owner_id", nullable = false)
+	private User owner;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "base_currency", nullable = false, length = 3)
@@ -37,18 +43,21 @@ public class Wallet extends BaseEntity {
 	@Column(nullable = false, length = 20)
 	private WalletStatus status;
 
+	@Version
+	private Long version = 0L;
+
 	protected Wallet() {
 	}
 
-	private Wallet(UUID id, UUID ownerId, Currency baseCurrency, WalletStatus status) {
+	private Wallet(UUID id, User owner, Currency baseCurrency, WalletStatus status) {
 		this.id = Objects.requireNonNull(id, "id");
-		this.ownerId = Objects.requireNonNull(ownerId, "ownerId");
+		this.owner = Objects.requireNonNull(owner, "owner");
 		this.baseCurrency = Objects.requireNonNull(baseCurrency, "baseCurrency");
 		this.status = Objects.requireNonNull(status, "status");
 	}
 
-	public static Wallet create(UUID ownerId, Currency baseCurrency) {
-		return new Wallet(IdGenerator.newId(), ownerId, baseCurrency, WalletStatus.ACTIVE);
+	public static Wallet create(User owner, Currency baseCurrency) {
+		return new Wallet(IdGenerator.newId(), owner, baseCurrency, WalletStatus.ACTIVE);
 	}
 
 	public UUID getId() {
@@ -56,7 +65,11 @@ public class Wallet extends BaseEntity {
 	}
 
 	public UUID getOwnerId() {
-		return ownerId;
+		return owner != null ? owner.getId() : null;
+	}
+
+	public User getOwner() {
+		return owner;
 	}
 
 	public Currency getBaseCurrency() {
@@ -65,6 +78,10 @@ public class Wallet extends BaseEntity {
 
 	public WalletStatus getStatus() {
 		return status;
+	}
+
+	public Long getVersion() {
+		return version;
 	}
 
 	public void suspend() {

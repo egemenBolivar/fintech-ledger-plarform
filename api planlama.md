@@ -1,7 +1,66 @@
 # FinTech Ledger Platform — API & Implementation Planlama
 
-> **Proje Durumu:** Spring Boot 4.0.2 + Angular 19 projeleri oluşturulmuş, domain implementasyonu başlanacak
-> **Son Güncelleme:** 26 Ocak 2026
+> **Proje Durumu:** Backend + Frontend tamamlandı, Event Sourcing & Deployment hazırlanıyor
+> **Son Güncelleme:** 28 Ocak 2026
+
+---
+
+## 🏁 TAMAMLANAN İŞLER
+
+### ✅ Backend (Tamamen Tamamlandı)
+- [x] Money Value Object, Currency Enum, BaseEntity
+- [x] Wallet Entity + WalletStatus Enum
+- [x] Transaction Entity (Immutable) + Direction/GroupType/ReferenceType Enums
+- [x] WalletRepository, TransactionRepository
+- [x] BalanceCalculator (real-time SUM)
+- [x] WalletService, LedgerService, LedgerUseCaseService
+- [x] FxService + FxRateProvider (mock rates)
+- [x] WalletController, TransactionController, UseCaseController
+- [x] Tüm DTO'lar (Request/Response)
+- [x] GlobalExceptionHandler (RFC 7807 ProblemDetail)
+- [x] @ResponseStatus tüm exception'lara eklendi
+- [x] Idempotency mekanizması (IdempotencyKey entity + service)
+- [x] Optimistic Locking (@Version on Wallet)
+- [x] Swagger/OpenAPI annotations
+- [x] Controller testleri (@WebMvcTest)
+- [x] Domain unit testleri (Money, Wallet, Transaction)
+- [x] FX Rate Preview endpoint (GET /api/v1/fx/rate)
+- [x] JWT Authentication + Spring Security
+- [x] User-Wallet ilişkisi (her kullanıcı sadece kendi wallet'larını görür)
+- [x] Access Control (AccessDeniedException - 403)
+- [x] Balance Snapshot mekanizması (performans için)
+
+### ✅ Frontend (Tamamen Tamamlandı)
+- [x] Angular 20 proje yapısı
+- [x] WalletListComponent - wallet listesi, create, suspend/activate
+- [x] WalletDetailComponent - detay, deposit, withdraw, transfer, FX convert
+- [x] Transaction history with pagination
+- [x] WalletApiService - tüm API çağrıları
+- [x] HTTP interceptor (base URL, auth, error handling)
+- [x] ToastService + ToastComponent (custom, no dependency)
+- [x] FX Preview (debounce ile 500ms gecikme)
+- [x] Login/Register sayfaları
+- [x] Auth Guard + Token management
+- [x] Loading states (skeleton loaders)
+- [x] Owner ID alanı kaldırıldı (authenticated user'dan alınıyor)
+
+---
+
+## 🚧 DEVAM EDEN / SONRAKI ADIMLAR
+
+### Event Sourcing & Audit Logging (Tasarım Aşamasında)
+- [ ] Domain Event'ler tanımlanacak
+- [ ] Event Store tasarımı
+- [ ] Audit Log entity ve service
+- [ ] Event Publisher mekanizması
+
+### Deployment Hazırlığı
+- [ ] Dockerfile (backend)
+- [ ] Dockerfile (frontend)
+- [ ] docker-compose.yml (production)
+- [ ] CI/CD pipeline (GitHub Actions)
+- [ ] Environment configuration
+- [ ] DigitalOcean deployment
 
 ---
 
@@ -508,39 +567,39 @@ public Money calculateBalanceOptimized(UUID walletId, Currency currency) {
 
 ## 🚀 Implementation Checklist
 
-### Sprint 1: Core Domain (1 hafta)
-- [ ] `Money` Value Object
-- [ ] `Currency` Enum
-- [ ] `BaseEntity` with audit fields
-- [ ] Domain exceptions
-- [ ] Unit tests
+### ✅ Sprint 1: Core Domain (TAMAMLANDI)
+- [x] `Money` Value Object
+- [x] `Currency` Enum
+- [x] `BaseEntity` with audit fields
+- [x] Domain exceptions
+- [x] Unit tests
 
-### Sprint 2: Ledger Domain (1 hafta)
-- [ ] `Wallet` entity
-- [ ] `Transaction` entity
-- [ ] All enums (Direction, GroupType, ReferenceType)
-- [ ] Repositories
-- [ ] `BalanceCalculator`
+### ✅ Sprint 2: Ledger Domain (TAMAMLANDI)
+- [x] `Wallet` entity
+- [x] `Transaction` entity
+- [x] All enums (Direction, GroupType, ReferenceType)
+- [x] Repositories
+- [x] `BalanceCalculator`
 
-### Sprint 3: Application Layer (1 hafta)
-- [ ] `WalletService`
-- [ ] `LedgerService`
-- [ ] Commands (CreateWallet, RecordTransaction)
-- [ ] Use-cases (Deposit, Withdrawal, Transfer)
+### ✅ Sprint 3: Application Layer (TAMAMLANDI)
+- [x] `WalletService`
+- [x] `LedgerService`
+- [x] Commands (CreateWallet, RecordTransaction)
+- [x] Use-cases (Deposit, Withdrawal, Transfer)
 
-### Sprint 4: REST API (1 hafta)
-- [ ] `WalletController`
-- [ ] `TransactionController`
-- [ ] Use-case controllers
-- [ ] DTOs (Request/Response)
-- [ ] Global exception handler
-- [ ] OpenAPI documentation
+### ✅ Sprint 4: REST API (TAMAMLANDI)
+- [x] `WalletController`
+- [x] `TransactionController`
+- [x] Use-case controllers
+- [x] DTOs (Request/Response)
+- [x] Global exception handler
+- [x] OpenAPI documentation
 
-### Sprint 5: Advanced Features (1 hafta)
-- [ ] Idempotency mechanism
-- [ ] FX conversion (mock rates)
-- [ ] Transaction filtering/pagination
-- [ ] Validation improvements
+### ✅ Sprint 5: Advanced Features (TAMAMLANDI)
+- [x] Idempotency mechanism
+- [x] FX conversion (mock rates)
+- [x] Transaction filtering/pagination
+- [x] Validation improvements
 
 ---
 

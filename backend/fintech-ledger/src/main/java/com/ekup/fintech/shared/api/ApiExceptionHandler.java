@@ -9,9 +9,27 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.ekup.fintech.shared.exception.DomainException;
+import com.ekup.fintech.shared.exception.IdempotencyConflictException;
+import com.ekup.fintech.shared.exception.ResourceNotFoundException;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
+	@ExceptionHandler(IdempotencyConflictException.class)
+	public ProblemDetail handleIdempotencyConflict(IdempotencyConflictException ex) {
+		ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
+		pd.setProperty("timestamp", Instant.now());
+		pd.setProperty("type", "IDEMPOTENCY_CONFLICT");
+		return pd;
+	}
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ProblemDetail handleNotFound(ResourceNotFoundException ex) {
+		ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, ex.getMessage());
+		pd.setProperty("timestamp", Instant.now());
+		pd.setProperty("type", "NOT_FOUND");
+		return pd;
+	}
+
 	@ExceptionHandler(DomainException.class)
 	public ProblemDetail handleDomain(DomainException ex) {
 		ProblemDetail pd = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
