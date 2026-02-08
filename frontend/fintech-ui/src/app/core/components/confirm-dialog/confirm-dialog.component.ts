@@ -94,14 +94,14 @@ import { CommonModule } from '@angular/common';
     }
 
     .dialog-icon.info {
-      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-      color: #2563eb;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #b87333;
     }
 
     .dialog-title {
       margin: 0 0 0.75rem;
       font-size: 1.25rem;
-      color: #1a1a2e;
+      color: #2d3a4a;
     }
 
     .dialog-message {
@@ -157,12 +157,13 @@ import { CommonModule } from '@angular/common';
     }
 
     .btn-info {
-      background: #3b82f6;
-      color: white;
+      background: linear-gradient(135deg, #d4a84b 0%, #b87333 100%);
+      color: #1e2832;
+      font-weight: 600;
     }
 
     .btn-info:hover {
-      background: #2563eb;
+      background: linear-gradient(135deg, #e0b85c 0%, #c98040 100%);
     }
 
     .btn:disabled {

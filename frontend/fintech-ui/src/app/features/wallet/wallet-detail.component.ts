@@ -247,11 +247,11 @@ import { Wallet, Balance, Transaction, Page, Currency } from '../../shared/model
   `,
   styles: [`
     .wallet-detail { padding: 2rem; max-width: 900px; margin: 0 auto; }
-    .back-link { color: #3b82f6; text-decoration: none; display: inline-block; margin-bottom: 1rem; }
-    .back-link:hover { text-decoration: underline; }
+    .back-link { color: #d4a84b; text-decoration: none; display: inline-block; margin-bottom: 1rem; }
+    .back-link:hover { text-decoration: underline; color: #b87333; }
     
     .wallet-header-card {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      background: linear-gradient(135deg, #1e2832 0%, #2d3a4a 100%);
       color: white; border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;
     }
     .wallet-main { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
@@ -266,11 +266,11 @@ import { Wallet, Balance, Transaction, Page, Currency } from '../../shared/model
     .wallet-meta { font-size: 0.875rem; opacity: 0.8; display: flex; flex-direction: column; gap: 0.25rem; }
     
     .actions-panel { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .actions-panel h3 { margin: 0 0 1rem; color: #1a1a2e; }
+    .actions-panel h3 { margin: 0 0 1rem; color: #2d3a4a; }
     .action-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
     
     .transactions-panel { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .transactions-panel h3 { margin: 0 0 1rem; color: #1a1a2e; }
+    .transactions-panel h3 { margin: 0 0 1rem; color: #2d3a4a; }
     
     .transaction-item {
       display: flex; align-items: center; gap: 1rem; padding: 1rem;
@@ -284,7 +284,7 @@ import { Wallet, Balance, Transaction, Page, Currency } from '../../shared/model
     .transaction-item.credit .tx-icon { background: #d1fae5; color: #059669; }
     .transaction-item.debit .tx-icon { background: #fee2e2; color: #dc2626; }
     .tx-details { flex: 1; }
-    .tx-type { font-weight: 600; color: #1a1a2e; }
+    .tx-type { font-weight: 600; color: #2d3a4a; }
     .tx-desc { font-size: 0.875rem; color: #6b7280; }
     .tx-time { font-size: 0.75rem; color: #9ca3af; }
     .tx-amount { font-weight: 600; font-family: monospace; }
@@ -306,7 +306,7 @@ import { Wallet, Balance, Transaction, Page, Currency } from '../../shared/model
     .btn:disabled { opacity: 0.5; cursor: not-allowed; }
     .btn-success { background: #10b981; color: white; }
     .btn-warning { background: #f59e0b; color: white; }
-    .btn-primary { background: #3b82f6; color: white; }
+    .btn-primary { background: linear-gradient(135deg, #d4a84b 0%, #b87333 100%); color: #1e2832; font-weight: 600; }
     .btn-fx { background: #8b5cf6; color: white; }
     
     .modal-overlay {
@@ -349,7 +349,7 @@ import { Wallet, Balance, Transaction, Page, Currency } from '../../shared/model
       width: 18px;
       height: 18px;
       border: 2px solid #e5e7eb;
-      border-top-color: #3b82f6;
+      border-top-color: #d4a84b;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -407,7 +407,7 @@ import { Wallet, Balance, Transaction, Page, Currency } from '../../shared/model
     .fx-amount {
       font-size: 1.25rem;
       font-weight: 700;
-      color: #1a1a2e;
+      color: #2d3a4a;
     }
     
     .fx-amount.highlight {

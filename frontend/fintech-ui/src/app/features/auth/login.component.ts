@@ -13,17 +13,9 @@ import { ToastService } from '../../core/services/toast.service';
     <div class="auth-container">
       <div class="auth-card">
         <div class="auth-header">
-          <div class="auth-logo"><svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 10px;">
-      <defs>
-         <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#0288d1;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#26c6da;stop-opacity:1" />
-        </linearGradient>
-      </defs>
-      <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H7V10H12V7.47L14.28 9.75L12 12.03V11.99Z" fill="url(#shieldGrad)"/>
-      <path d="M10 14.5L14.5 10L16 11.5L10 17.5L7 14.5L8.5 13L10 14.5Z" fill="white"/>
-    </svg></div>
-          <h1>Fintech Ledger</h1>
+          <img src="imagelogo.png" alt="Fintech Ledger Logo" class="auth-logo" />
+          <h1 class="brand-title">WALLED</h1>
+          <h2 class="brand-subtitle">WALLET LEDGER</h2>
           <p>Sign in to your account</p>
         </div>
 
@@ -111,7 +103,7 @@ import { ToastService } from '../../core/services/toast.service';
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(135deg, #1e2832 0%, #2d3a4a 50%, #3d4f61 100%);
       padding: 2rem;
     }
 
@@ -121,7 +113,7 @@ import { ToastService } from '../../core/services/toast.service';
       padding: 2.5rem;
       width: 100%;
       max-width: 400px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
 
     .auth-header {
@@ -130,8 +122,25 @@ import { ToastService } from '../../core/services/toast.service';
     }
 
     .auth-logo {
-      font-size: 3rem;
-      margin-bottom: 0.01rem;
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .brand-title {
+      margin: 0;
+      color: #1e2a3a;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-subtitle {
+      margin: 0.25rem 0 1rem;
+      color: #4a5568;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 3px;
     }
 
     .auth-header h1 {
@@ -168,8 +177,8 @@ import { ToastService } from '../../core/services/toast.service';
 
     .form-group input:focus {
       outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      border-color: #d4a84b;
+      box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.15);
     }
 
     .btn {
@@ -183,17 +192,22 @@ import { ToastService } from '../../core/services/toast.service';
     }
 
     .btn-primary {
-      background: #3b82f6;
-      color: white;
+      background: linear-gradient(135deg, #d4a84b 0%, #b87333 100%);
+      color: #1e2832;
+      font-weight: 600;
     }
 
     .btn-primary:hover {
-      background: #2563eb;
+      background: linear-gradient(135deg, #e0b85c 0%, #c98040 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(212, 168, 75, 0.3);
     }
 
     .btn-primary:disabled {
-      background: #93c5fd;
+      background: linear-gradient(135deg, #c9c9c9 0%, #a0a0a0 100%);
       cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
     }
 
     .btn-full {
@@ -213,7 +227,7 @@ import { ToastService } from '../../core/services/toast.service';
     }
 
     .auth-footer a {
-      color: #3b82f6;
+      color: #d4a84b;
       cursor: pointer;
       font-weight: 500;
     }

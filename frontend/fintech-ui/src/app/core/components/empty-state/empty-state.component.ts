@@ -40,7 +40,7 @@ import { CommonModule } from '@angular/common';
 
     .empty-title {
       margin: 0 0 0.5rem;
-      color: #1a1a2e;
+      color: #2d3a4a;
       font-size: 1.25rem;
       font-weight: 600;
     }

@@ -132,7 +132,7 @@ interface WalletWithBalance extends Wallet {
   styles: [`
     .wallet-list { padding: 2rem; max-width: 1200px; margin: 0 auto; }
     .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
-    .page-header h1 { margin: 0; color: #1a1a2e; }
+    .page-header h1 { margin: 0; color: #2d3a4a; }
     
     .wallet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
     
@@ -149,7 +149,7 @@ interface WalletWithBalance extends Wallet {
     
     .wallet-header { display: flex; justify-content: space-between; margin-bottom: 1rem; }
     .currency-badge { 
-      background: #3b82f6; color: white; padding: 0.25rem 0.75rem; 
+      background: linear-gradient(135deg, #d4a84b 0%, #b87333 100%); color: #1e2832; padding: 0.25rem 0.75rem; 
       border-radius: 20px; font-weight: 600; font-size: 0.875rem; 
     }
     .status-badge { 
@@ -160,7 +160,7 @@ interface WalletWithBalance extends Wallet {
     .status-badge.closed { background: #fee2e2; color: #dc2626; }
     
     .wallet-balance { margin-bottom: 0.5rem; }
-    .wallet-balance .amount { font-size: 2rem; font-weight: 700; color: #1a1a2e; }
+    .wallet-balance .amount { font-size: 2rem; font-weight: 700; color: #2d3a4a; }
     .wallet-balance .currency { font-size: 1rem; color: #6b7280; margin-left: 0.5rem; }
     .loading-balance { color: #9ca3af; }
     
@@ -173,8 +173,8 @@ interface WalletWithBalance extends Wallet {
       background: white; cursor: pointer; font-size: 0.875rem; text-decoration: none; color: #374151;
     }
     .btn:hover { background: #f9fafb; }
-    .btn-primary { background: #3b82f6; color: white; border-color: #3b82f6; }
-    .btn-primary:hover { background: #2563eb; }
+    .btn-primary { background: linear-gradient(135deg, #d4a84b 0%, #b87333 100%); color: #1e2832; border-color: #d4a84b; font-weight: 600; }
+    .btn-primary:hover { background: linear-gradient(135deg, #e0b85c 0%, #c98040 100%); }
     .btn-warning { background: #f59e0b; color: white; border-color: #f59e0b; }
     .btn-success { background: #10b981; color: white; border-color: #10b981; }
     .btn-sm { padding: 0.375rem 0.75rem; font-size: 0.75rem; }
@@ -201,7 +201,7 @@ interface WalletWithBalance extends Wallet {
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     .empty-state .empty-icon { font-size: 4rem; margin-bottom: 1rem; }
-    .empty-state h3 { margin: 0 0 0.5rem; color: #1a1a2e; }
+    .empty-state h3 { margin: 0 0 0.5rem; color: #2d3a4a; }
     .empty-state p { margin: 0 0 1.5rem; color: #6b7280; }
     
     .skeleton-card { pointer-events: none; }
